@@ -43,6 +43,5 @@ export default function(driver){
 		waitUntilVisible: function(){
 			return driver.wait(until.elementLocated(pageobjects.nametextfield));
 		},
-
 	};
 };

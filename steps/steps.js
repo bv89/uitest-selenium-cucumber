@@ -15,12 +15,12 @@ let errorpage;
 let helperMethods;
 
 Before(async () => {
+    driver = await initDriver();
     formpage = new FormPage(driver);
     hellopage = new HelloPage(driver);
     helperMethods = new HelperMethods(driver);
     homepage = new HomePage(driver);
     errorpage = new ErrorPage(driver);
-    driver = await initDriver();
 });
 
 Given("I navigate to the form page", async () => {
@@ -78,8 +78,8 @@ Then("I should see {string}", async (string) => {
 });
 
 Then("the Company logo should be visible", async () => {
-    await genericactions.companyLogo();
-    assert.equal(await genericactions.companyLogo(), true);
+    await helperMethods.companyLogo();
+    assert.equal(await helperMethods.companyLogo(), true);
 });
 
 Then("I should see a form", async () => {
@@ -124,8 +124,8 @@ Then("the home button from navbar should be active", async () => {
 
 // set of generic actions that can be used on any page
 Then("the page title should be {string}", async (string) => {
-    await genericactions.getPageTitle();
-    assert.equal(await genericactions.getPageTitle(), string);
+    await helperMethods.getPageTitle();
+    assert.equal(await helperMethods.getPageTitle(), string);
 });
 
 Given("I navigate to {string}", async (string) => {
